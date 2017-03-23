@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>KAM Car Rental</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    @Styles.Render("~/Content/css/material-kit.css", "~/Content/css/demo.css")
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body class="index-page">
+    <!-- Navbar -->
+    <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("KAM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse" id="navigation-index">
+            <ul class="nav navbar-nav navbar-right">
+
+            @if (Request.IsAuthenticated)
+            {
+                <li>
+                    @Html.ActionLink("Customer", "Index", "Customers")
+                </li>
+
+                if (User.IsInRole("Admin"))
+                {
+                <li>
+                    @Html.ActionLink("Frequency", "Index", "Frequencies")
+                </li>
+                }
+                <li>
+                    @Html.ActionLink("Search Car", "Search", "Customers")
+                </li>
+            }
+                @Html.Partial("_LoginPartial")
+                <li>
+                    &nbsp;
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="body-content">
+        <div class="wrapper">
+            <div class="header header-filter" style="background-image: url('http://www.araspot.com/wp-content/uploads/2015/06/autumn-cars-best-wallpaper-picture-uwz1vo.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="brand">
+                                <h1>KAM Car-Rental</h1>
+                                <h3>An Airbnb for cars!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="main main-raised container">
+
+                    @RenderBody()
+                    </div>
+                </div>
+                </div>
+
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @Scripts.Render("~/Content/js/material.min.js", "~/Content/js/nouislider.min.js", "~/Content/js/bootstrap-datepicker.js", "~/Content/js/material-kit.js")
+                @RenderSection("scripts", required: false)
+</body>
+<script type="text/javascript">
+
+		$().ready(function(){
+			// the body of this function is in assets/material-kit.js
+			materialKit.initSliders();
+            window_width = $(window).width();
+
+            if (window_width >= 992){
+                big_image = $('.wrapper > .header');
+
+				$(window).on('scroll', materialKitDemo.checkScrollForParallax);
+			}
+
+		});
+</script>
+</html>

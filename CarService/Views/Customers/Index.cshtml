@@ -1,0 +1,92 @@
+﻿@model IEnumerable<CarService.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+            <div class="title">
+                <p class="btn btn-primary btn-round">@Html.ActionLink("Create New", "Create")</p>
+            </div>
+
+            <table class="table">
+                <tr class="btn-warning">
+                    <th>
+                        @Html.DisplayNameFor(model => model.frequency.description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.phoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarModel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarMake)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarCapacity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarAverage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PerHourRate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FreeFrom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FreeTo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Available)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.frequency.description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarModel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarMake)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarCapacity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarAverage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PerHourRate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FreeFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FreeTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Available)
+                        </td>
+                        <td>
+                            <span class="btn btn-simple btn-primary ">@Html.ActionLink("Edit", "Edit", new { id = item.id })</span> |
+                            <span class="btn btn-simple btn-info">@Html.ActionLink("Details", "Details", new { id = item.id })</span> |
+                            <span class="btn btn-simple btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.id })</span>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+
+
+

@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+
+<div class="">
+    <!-- Tabs on Plain Card -->
+    <div class="card card-nav-tabs card-plain">
+        <div class="header header-danger">
+            <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Rent<div class="ripple-container"></div></a></li>
+                        <li class=""><a href="#updates" data-toggle="tab" aria-expanded="false">Share<div class="ripple-container"></div></a></li>
+                        <li class=""><a href="#history" data-toggle="tab" aria-expanded="false">Earn<div class="ripple-container"></div></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tab-content text-center">
+                <div class="tab-pane active" id="home">
+                    <p>
+                        You have your vehicle in service, or you are in a different city where you dont own a vehicle and dont want to take favors. Or you would just prefer to drive on your own than be a passenger paying for each ride. If you dont have your own vehicle and need one only occassionally. Reach out to Us !! 
+
+                    </p>
+                </div>
+                <div class="tab-pane" id="updates">
+                    <p>
+                        If you are traveling out of town and want your vehicle to remain in use rather than resting to rust in the garage. Reach out to Us !!
+                         
+                    </p>
+                </div>
+                <div class="tab-pane" id="history">
+                    <p>
+                        If you are in need of some quick income and want to rent out your car. Reach out to Us !!
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Tabs on plain Card -->
+</div>
+
+<div class="section" id="carousel">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <!-- Carousel Card -->
+                <div class="card card-raised card-carousel">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div class="carousel slide" data-ride="carousel">
+
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="https://blog.kaspersky.com/files/2015/05/rentacar-featured.jpg" alt="Awesome Image">
+                                    <div class="carousel-caption">
+                                        <h4>Rent a car.</h4>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="https://images.trvl-media.com/media/content/expus/graphics/launch/home/tvly/150324_cars-hero-image_1330x742.jpg" alt="Awesome Image">
+                                    <div class="carousel-caption">
+                                        <h4>Share a car</h4>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="http://shabra.com/wp-content/uploads/2011/03/low-risk-dealing.jpg" alt="Awesome Image">
+                                    <div class="carousel-caption">
+                                        <h4>Earn money as rent.</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <i class="material-icons">keyboard_arrow_left</i>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <i class="material-icons">keyboard_arrow_right</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Carousel Card -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sart Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">clear</i>
+                </button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-simple">Nice Button</button>
+                <button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Contact Us : </h2>
+
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB0OyY7YRoaGAHtsHgROZKhW5lgY8EfpBU'></script><div style='overflow:hidden;height:442px;width:1100px;'><div id='gmap_canvas' style='height:442px;width:1100px;'></div>
+<style>
+    #gmap_canvas img {
+        max-width: none !important;
+        background: none !important;
+    }
+</style></div> <a href='https://add-map.org/'>adding a google map to website</a>
+<script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=aaf13cbb1e98a515f74b8722abea6926e133a629'></script>
+<script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(39.13108,-84.51778409999997),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(39.13108,-84.51778409999997)});infowindow = new google.maps.InfoWindow({content:'<strong>University of Cincinnati</strong><br>2600 Clifton Avenue<br>45220 Cincinnati<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<!--  End Modal -->
+<br />
+<br />
+<br />
+<br />
+<div class="footer">
+    &copy; 2016 KAM Rentals. All rights reserved.
+</div>
+
+<br />
+<br />
+<br />
+<br />

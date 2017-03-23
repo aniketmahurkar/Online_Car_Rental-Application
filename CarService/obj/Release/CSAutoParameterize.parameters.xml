@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=sql1.gtt.me;Database=db_fc1f1e1ba27e46a2a094c39b5a4cbc1f;User Id=U_fc1f1e1ba27e46a2a094c39b5a4cbc1f;Password=pwd_fc1f1e1ba27e46a2a094c39b5a4cbc1f" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\milankunda\\Desktop\\CarService6BharathNew\\CarService6\\CarService\\CarService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

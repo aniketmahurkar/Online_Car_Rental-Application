@@ -1,0 +1,241 @@
+﻿@model IEnumerable<CarService.Models.Customer>
+@*<style>#searchform {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21;
+} 
+#map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}</style>*@
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>SEARCH</h2>
+
+@using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal" id="searchform">
+        <h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.Label("FreeFrom", "FreeFrom", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("FreeFrom", new { htmlAttributes = new { @class = "form-control", type = "time" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("FreeTo", "FreeTo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("FreeTo", new { htmlAttributes = new { @class = "form-control", type = "time" } })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.Label("street1","street1", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.Editor("street1", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("street2", "street2", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.Editor("street1", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("city", "city", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.Editor("city", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("state", "state", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.Editor("state", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" onclick="javascript:showlocation()"/>
+            </div>
+        </div>
+    </div>
+}
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+            * element that contains the map. */
+        #map {
+            height: 300px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 300px;
+            /*margin: 0;
+                    padding: 0;*/
+        }
+    </style>
+</head>
+<h3> Map</h3>
+<body>
+    <div id="map"></div>
+    <script>
+        function showLocation ()
+        {
+            //var map;
+            //var add = customer.street1 + "," + customer.street2 + "," + customer.city + "," + customer.state;
+            //var address = add;
+            //var requestUri = "http://maps.googleapis.com/maps/api/geocode/xml?address={0}&sensor=false", Uri.EscapeDataString(address));
+
+            //var request = WebRequest.Create(requestUri);
+            //var response = request.GetResponse();
+            //var xdoc = XDocument.Load(response.GetResponseStream());
+
+            //var result = xdoc.Element("GeocodeResponse").Element("result");
+            //var locationElement = result.Element("geometry").Element("location");
+            //var lat = locationElement.Element("lat");
+            //var lng = locationElement.Element("lng");
+            //customer.latitude = (double)lat;
+            //customer.longitude = (double)lng;
+
+        }
+    </script>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 40, lng: 184.5169755},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp0ARTWJly3dPXoLUZAx_pNzRyxOkfR3M&callback=initMap"
+            async defer></script>
+    
+    <script>
+        function initMap()
+        {
+            var map = new google.maps.Map(document.getElementById('map'));
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var im = 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png';
+                    var marker = new google.maps.Marker({ map: map, animation: google.maps.Animation.Drop });
+                    // var infoWindow = new google.maps.InfoWindow({map: map});
+                    
+                    @*if(@ViewBag.HasLocation == 0)
+                        {*@
+                    var pos =
+                    {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    @*marker.setPosition(pos);
+                    marker.setIcon(im);
+                    marker.setTitle("You are here!");
+                    }
+                    if(@ViewBag.HasLocation == 1)
+                    {
+                        var pos =
+                   {
+                       lat: ViewBag.lat,
+                       lng: ViewBag.lon
+                   };
+                        marker.setPosition(pos);
+                        marker.setIcon(im);
+                        marker.setTitle("You are here!");
+                    }*@
+                    marker.setPosition(pos);
+                    marker.setIcon(im);
+                    // marker. setAnimation(BOUNCE);
+                    marker.setTitle("You are here!");
+                    // marker.setClickable(!0);
+
+                    // marker.setShape(circle);
+                    // infoWindow.setPosition(pos);
+                    // infoWindow.setContent('You are here!');
+                    map.setCenter(pos);
+                    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+                    map.setZoom(15);
+                    //var infoWindow;
+                    var InfoWindowContent = [];
+                    var i = 0;
+                    @foreach (var c in Model)
+                    {
+                        <text>
+                            var loc = new google.maps.LatLng(@c.latitude, @c.longitude, false);
+                            marker = new google.maps.Marker({ map: map, position: loc });
+                            InfoWindowContent[i] = '@Html.ActionLink("Details", "Details",new { id = @c.id })';
+                            attachSecretMessage(marker, InfoWindowContent[i]);
+                            i = i + 1;
+                           
+                        </text>
+                    }
+                },
+                function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            }
+            else {
+
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+            //var i;
+
+            // var Eventlist = Models.Customer.Select(model => model.events) ;
+
+        }
+
+        function attachSecretMessage(marker, secretMessage) {
+            var infowindow = new google.maps.InfoWindow({
+                content: secretMessage
+            });
+            marker.addListener('click', function() {
+                infowindow.open(marker.get('map'), marker);
+            });
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                  'Error: The Geolocation service failed.' :
+                                  'Error: Your browser doesn\'t support geolocation.');
+        }
+
+    </script>
+</body>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
